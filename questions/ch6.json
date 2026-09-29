@@ -1,0 +1,23 @@
+{
+  "chapitre": {
+    "id": "ch6",
+    "titre": "Équations différentielles",
+    "court": "Équa diff",
+    "parcours": "sorbonne",
+    "ordre": 6,
+    "pages": "poly p.135–152",
+    "sections": [
+      {
+        "id": "ch6.s1",
+        "titre": "Linéaires d’ordre 1",
+        "ref": "poly §6.1 p.137"
+      },
+      {
+        "id": "ch6.s2",
+        "titre": "Linéaires d’ordre 2 à coefficients constants",
+        "ref": "poly §6.2 p.143"
+      }
+    ]
+  },
+  "questions": []
+}

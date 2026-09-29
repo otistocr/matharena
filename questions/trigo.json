@@ -1,0 +1,58 @@
+{
+  "chapitre": {
+    "id": "trigo",
+    "titre": "Trigonométrie",
+    "court": "Trigo",
+    "parcours": "sorbonne",
+    "ordre": 0,
+    "pages": "transversal : poly ch. 1, 2, 4",
+    "sections": [
+      {
+        "id": "trigo.s1",
+        "titre": "Radians, cercle, mesure principale",
+        "ref": "cours perso trigo étage 2 · poly Fig. 1.3 p.7"
+      },
+      {
+        "id": "trigo.s2",
+        "titre": "Valeurs remarquables et angles associés",
+        "ref": "poly Prop. 4.44 p.115 · TD1 ex 1"
+      },
+      {
+        "id": "trigo.s3",
+        "titre": "Pythagore + quadrant",
+        "ref": "poly Prop. 4.44 p.115"
+      },
+      {
+        "id": "trigo.s4",
+        "titre": "Équations trigonométriques",
+        "ref": "poly p.116 · cours perso étage 3"
+      },
+      {
+        "id": "trigo.s5",
+        "titre": "Angle d’un point, argument",
+        "ref": "poly §2.1.5 p.36 · cours perso étage 4"
+      },
+      {
+        "id": "trigo.s6",
+        "titre": "Addition, duplication, linéarisation",
+        "ref": "poly p.39 · cours perso étage 5"
+      },
+      {
+        "id": "trigo.s7",
+        "titre": "Fonctions sin, cos, tan",
+        "ref": "poly §4.5.5 p.115–117"
+      },
+      {
+        "id": "trigo.s8",
+        "titre": "Fonctions réciproques",
+        "ref": "poly §4.5.7 p.118–120"
+      },
+      {
+        "id": "trigo.s9",
+        "titre": "Exponentielle complexe, Euler, Moivre",
+        "ref": "poly §2.1.5–2.1.6 p.37–41"
+      }
+    ]
+  },
+  "questions": []
+}

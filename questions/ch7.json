@@ -1,0 +1,43 @@
+{
+  "chapitre": {
+    "id": "ch7",
+    "titre": "Développements limités",
+    "court": "DL",
+    "parcours": "sorbonne",
+    "ordre": 7,
+    "pages": "poly p.153–168",
+    "sections": [
+      {
+        "id": "ch7.s1",
+        "titre": "Fonctions lisses, accroissements finis",
+        "ref": "poly §7.1 p.153"
+      },
+      {
+        "id": "ch7.s2",
+        "titre": "Petits o et équivalents",
+        "ref": "poly §7.2 p.156"
+      },
+      {
+        "id": "ch7.s3",
+        "titre": "Opérations sur petits o et équivalents",
+        "ref": "poly §7.3 p.158"
+      },
+      {
+        "id": "ch7.s4",
+        "titre": "Taylor-Young, DL de référence",
+        "ref": "poly §7.4 p.160"
+      },
+      {
+        "id": "ch7.s5",
+        "titre": "Pratique des DL",
+        "ref": "poly §7.5 p.164"
+      },
+      {
+        "id": "ch7.s6",
+        "titre": "Développements asymptotiques",
+        "ref": "poly §7.6 p.167"
+      }
+    ]
+  },
+  "questions": []
+}

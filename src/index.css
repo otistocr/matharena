@@ -1,0 +1,94 @@
+@import "tailwindcss";
+@import "katex/dist/katex.min.css";
+
+@theme {
+  --font-sans: ui-sans-serif, -apple-system, "SF Pro Text", "Helvetica Neue", system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+/* ---- Palette : sobre façon zetamac (blanc, encre, un seul accent) + couleurs sémantiques des explications */
+:root {
+  color-scheme: light dark;
+  -webkit-tap-highlight-color: transparent;
+  --bg: #ffffff;
+  --ink: #111827;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+
+  --cours: #1d4ed8;   --cours-bg: #eff6ff;   --cours-line: #93c5fd;
+  --methode: #6d28d9; --methode-bg: #f5f3ff; --methode-line: #c4b5fd;
+  --calcul: #374151;  --calcul-bg: #f9fafb;  --calcul-line: #d1d5db;
+  --ok: #15803d;      --ok-bg: #f0fdf4;      --ok-line: #86efac;
+  --ko: #b91c1c;      --ko-bg: #fef2f2;      --ko-line: #fca5a5;
+  --verif: #0f766e;   --verif-bg: #f0fdfa;   --verif-line: #5eead4;
+  --cle: #b45309;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0a0a0a;
+    --ink: #f3f4f6;
+    --muted: #9ca3af;
+    --line: #262626;
+
+    --cours: #93c5fd;   --cours-bg: #0f1a2e;   --cours-line: #1e3a8a;
+    --methode: #c4b5fd; --methode-bg: #1a1530;  --methode-line: #4c1d95;
+    --calcul: #d1d5db;  --calcul-bg: #141414;   --calcul-line: #374151;
+    --ok: #86efac;      --ok-bg: #0d1f14;       --ok-line: #166534;
+    --ko: #fca5a5;      --ko-bg: #241111;       --ko-line: #7f1d1d;
+    --verif: #5eead4;   --verif-bg: #0b1f1d;    --verif-line: #115e59;
+    --cle: #fbbf24;
+  }
+}
+
+html, body { background: var(--bg); color: var(--ink); }
+body { min-height: 100dvh; overscroll-behavior-y: none; }
+
+/* ---- Texte riche (énoncés, explications) */
+.rich p { margin: 0.45rem 0; line-height: 1.6; }
+.rich ul { margin: 0.35rem 0; padding-left: 1.2rem; list-style: disc; }
+.rich li { margin: 0.2rem 0; line-height: 1.55; }
+.rich strong { font-weight: 650; }
+.rich .katex-display { margin: 0.5rem 0; overflow-x: auto; overflow-y: hidden; padding: 0.2rem 0; }
+.rich .katex { font-size: 1.08em; }
+@media (max-width: 480px) {
+  .rich .katex-display > .katex { font-size: 1em; }
+}
+
+/* Blocs colorés : bordure gauche + fond très léger + étiquette */
+.bloc {
+  margin: 0.6rem 0;
+  padding: 0.55rem 0.8rem 0.55rem 0.9rem;
+  border-left: 3px solid var(--b-line);
+  background: var(--b-bg);
+  border-radius: 0 0.6rem 0.6rem 0;
+}
+.bloc > p:first-of-type { margin-top: 0.15rem; }
+.bloc > :last-child { margin-bottom: 0.1rem; }
+.bloc-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--b-ink);
+}
+.bloc-cours    { --b-ink: var(--cours);   --b-bg: var(--cours-bg);   --b-line: var(--cours-line); }
+.bloc-methode  { --b-ink: var(--methode); --b-bg: var(--methode-bg); --b-line: var(--methode-line); }
+.bloc-calcul   { --b-ink: var(--calcul);  --b-bg: var(--calcul-bg);  --b-line: var(--calcul-line); }
+.bloc-resultat { --b-ink: var(--ok);      --b-bg: var(--ok-bg);      --b-line: var(--ok-line); }
+.bloc-piege    { --b-ink: var(--ko);      --b-bg: var(--ko-bg);      --b-line: var(--ko-line); }
+.bloc-verif    { --b-ink: var(--verif);   --b-bg: var(--verif-bg);   --b-line: var(--verif-line); }
+
+/* Surligneurs dans les formules : \ok{} \cle{} \cours{} \ko{} */
+.hl-ok    { color: var(--ok); font-weight: 600; }
+.hl-cle   { color: var(--cle); }
+.hl-cours { color: var(--cours); }
+.hl-ko    { color: var(--ko); text-decoration: line-through; text-decoration-thickness: 1px; }
+
+/* Secousse d'erreur et apparition d'une question */
+@keyframes secousse { 10%, 90% { transform: translateX(-1px); } 20%, 80% { transform: translateX(2px); } 30%, 50%, 70% { transform: translateX(-4px); } 40%, 60% { transform: translateX(4px); } }
+.secousse { animation: secousse 0.35s; }
+@keyframes apparition { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+.apparition { animation: apparition 0.18s ease-out; }
+
+.pb-safe { padding-bottom: max(0.5rem, env(safe-area-inset-bottom)); }
+.pt-safe { padding-top: max(0.75rem, env(safe-area-inset-top)); }

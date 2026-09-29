@@ -1,0 +1,43 @@
+{
+  "chapitre": {
+    "id": "ch4",
+    "titre": "Études de fonctions",
+    "court": "Fonctions",
+    "parcours": "sorbonne",
+    "ordre": 4,
+    "pages": "poly p.91–122",
+    "sections": [
+      {
+        "id": "ch4.s1",
+        "titre": "Vocabulaire : bornes, limites, extrema, parité",
+        "ref": "poly §4.1 p.93"
+      },
+      {
+        "id": "ch4.s2",
+        "titre": "Continuité et dérivabilité",
+        "ref": "poly §4.2 p.98"
+      },
+      {
+        "id": "ch4.s3",
+        "titre": "Fonctions composées",
+        "ref": "poly §4.3 p.103"
+      },
+      {
+        "id": "ch4.s4",
+        "titre": "Fonction réciproque d’une bijection",
+        "ref": "poly §4.4 p.106"
+      },
+      {
+        "id": "ch4.s5",
+        "titre": "Puissances, exponentielle, logarithme, hyperboliques",
+        "ref": "poly §4.5.1–4.5.4 p.108"
+      },
+      {
+        "id": "ch4.s6",
+        "titre": "Trigonométrie et fonctions réciproques",
+        "ref": "poly §4.5.5–4.5.7 p.115"
+      }
+    ]
+  },
+  "questions": []
+}

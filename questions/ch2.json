@@ -1,0 +1,43 @@
+{
+  "chapitre": {
+    "id": "ch2",
+    "titre": "Complexes et polynômes",
+    "court": "Complexes",
+    "parcours": "sorbonne",
+    "ordre": 2,
+    "pages": "poly p.31–56",
+    "sections": [
+      {
+        "id": "ch2.s1",
+        "titre": "Forme algébrique, conjugué, module",
+        "ref": "poly §2.1.1–2.1.4 p.31"
+      },
+      {
+        "id": "ch2.s2",
+        "titre": "Forme trigonométrique, exponentielle complexe",
+        "ref": "poly §2.1.5–2.1.6 p.36"
+      },
+      {
+        "id": "ch2.s3",
+        "titre": "Racines de l’unité, sommes géométriques",
+        "ref": "poly §2.1.7–2.1.8 p.41"
+      },
+      {
+        "id": "ch2.s4",
+        "titre": "Racines carrées, équations du second degré",
+        "ref": "poly §2.1.9 p.43"
+      },
+      {
+        "id": "ch2.s5",
+        "titre": "Polynômes : opérations, degré",
+        "ref": "poly §2.2 p.44"
+      },
+      {
+        "id": "ch2.s6",
+        "titre": "Racines d’un polynôme",
+        "ref": "poly §2.3 p.48"
+      }
+    ]
+  },
+  "questions": []
+}

@@ -1,0 +1,247 @@
+{
+  "chapitre": {
+    "id": "ch1",
+    "titre": "Géométrie du plan et de l’espace",
+    "court": "Géométrie",
+    "parcours": "sorbonne",
+    "ordre": 1,
+    "pages": "poly p.5–30",
+    "sections": [
+      {
+        "id": "ch1.s1",
+        "titre": "Vecteurs, produit scalaire, projection orthogonale",
+        "ref": "poly §1.1 p.5"
+      },
+      {
+        "id": "ch1.s2",
+        "titre": "Bases, familles libres/liées, composantes",
+        "ref": "poly §1.2 p.9"
+      },
+      {
+        "id": "ch1.s3",
+        "titre": "Produit vectoriel",
+        "ref": "poly §1.3 p.14"
+      },
+      {
+        "id": "ch1.s4",
+        "titre": "Équations de droites et de plans",
+        "ref": "poly §1.4 p.18"
+      },
+      {
+        "id": "ch1.s5",
+        "titre": "Équation d’un cercle",
+        "ref": "poly §1.5 p.24"
+      },
+      {
+        "id": "ch1.s6",
+        "titre": "Transformations du plan",
+        "ref": "poly §1.6 p.25"
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "ch1-001",
+      "chapitre": "ch1",
+      "section": "ch1.s1",
+      "type": "num",
+      "niveau": 1,
+      "enonce": "Dans le plan muni du repère orthonormé canonique, on pose $O=(0,0)$, $A=(1,1)$, $B=(1+\\sqrt3,\\,0)$ et $C=(-1,0)$. Donner l'angle **non orienté** $\\theta\\in[0,\\pi]$ entre $\\overrightarrow{OC}$ et $\\overrightarrow{AB}$, en radians.",
+      "reponse": "5pi/6",
+      "indice": "Calcule $\\overrightarrow{OC}\\cdot\\overrightarrow{AB}$ en composantes, puis les deux normes, et isole $\\cos\\theta$.",
+      "explication": "[cours] **Énoncé indispensable 1** : $\\cours{\\vec u\\cdot\\vec v=\\|\\vec u\\|\\,\\|\\vec v\\|\\cos\\theta}$, où $\\theta\\in[0,\\pi]$ est l'angle non orienté.\n**Énoncé indispensable 4** (base orthonormée) : $\\cours{\\vec u\\cdot\\vec v=xx'+yy'}$.\n[methode] Calculer le produit scalaire **de deux façons**, puis isoler $\\cos\\theta$.\n[calcul] Composantes (arrivée − départ) :\n$$\\overrightarrow{OC}=\\begin{pmatrix}-1\\\\0\\end{pmatrix},\\qquad \\overrightarrow{AB}=\\begin{pmatrix}(1+\\sqrt3)-1\\\\0-1\\end{pmatrix}=\\begin{pmatrix}\\sqrt3\\\\-1\\end{pmatrix}$$\nProduit scalaire : $\\overrightarrow{OC}\\cdot\\overrightarrow{AB}=(-1)\\sqrt3+0\\times(-1)=\\cle{-\\sqrt3}$\nNormes : $\\|\\overrightarrow{OC}\\|=\\cle{1}$ et $\\|\\overrightarrow{AB}\\|=\\sqrt{3+1}=\\cle{2}$\n$$\\cos\\theta=\\frac{\\cle{-\\sqrt3}}{\\cle{1}\\times\\cle{2}}=-\\frac{\\sqrt3}{2}$$\n[resultat] Dans $[0,\\pi]$, le seul angle de cosinus $-\\frac{\\sqrt3}{2}$ est $\\ok{\\theta=\\dfrac{5\\pi}{6}}$.\n[piege] Répondre $\\frac{\\pi}{6}$ en oubliant le signe : un produit scalaire **négatif** signifie un angle **obtus**.",
+      "source": "TD1 ex 2",
+      "origine": "transposée",
+      "refCours": "poly §1.1.4 p.7 et §1.2.3 p.12",
+      "indispensable": 4
+    },
+    {
+      "id": "ch1-002",
+      "chapitre": "ch1",
+      "section": "ch1.s1",
+      "type": "qcm",
+      "niveau": 1,
+      "enonce": "Soient $\\vec u$ et $\\vec v$ deux vecteurs non nuls et $\\theta\\in[0,\\pi]$ l'angle non orienté entre eux. Par définition, $\\vec u\\cdot\\vec v=$",
+      "choix": [
+        "$\\|\\vec u\\|\\,\\|\\vec v\\|\\cos\\theta$",
+        "$\\|\\vec u\\|\\,\\|\\vec v\\|\\sin\\theta$",
+        "$\\|\\vec u\\|+\\|\\vec v\\|\\cos\\theta$",
+        "$\\dfrac{\\cos\\theta}{\\|\\vec u\\|\\,\\|\\vec v\\|}$"
+      ],
+      "reponse": 0,
+      "explication": "[cours] **Énoncé indispensable 1** : $\\cours{\\vec u\\cdot\\vec v=\\|\\vec u\\|\\,\\|\\vec v\\|\\cos\\theta}$, avec $\\theta$ l'angle **non orienté**, entre $0$ et $\\pi$. Si un vecteur est nul, le produit scalaire vaut $0$.\n[resultat] $\\ok{\\|\\vec u\\|\\,\\|\\vec v\\|\\cos\\theta}$. C'est un **nombre réel**, pas un vecteur.\n[piege] $\\ko{\\|\\vec u\\|\\,\\|\\vec v\\|\\sin\\theta}$ est la **norme du produit vectoriel** $\\|\\vec u\\wedge\\vec v\\|$ (poly §1.3.1).\n[verif] Avec $\\vec v=\\vec u$ : $\\theta=0$ et $\\cos0=1$, donc $\\vec u\\cdot\\vec u=\\|\\vec u\\|^2$ (Remarque 1.1).",
+      "source": "créée",
+      "origine": "créée",
+      "refCours": "poly §1.1.4 p.7",
+      "indispensable": 1
+    },
+    {
+      "id": "ch1-003",
+      "chapitre": "ch1",
+      "section": "ch1.s2",
+      "type": "vf",
+      "niveau": 1,
+      "enonce": "Dans l'espace, la famille $\\vec u_1=\\begin{pmatrix}0\\\\-3\\\\0\\end{pmatrix},\\ \\vec u_2=\\begin{pmatrix}0\\\\1\\\\3\\end{pmatrix},\\ \\vec u_3=\\begin{pmatrix}2\\\\1\\\\3\\end{pmatrix}$ est une base de l'espace.",
+      "reponse": true,
+      "explication": "[cours] **Définition 1.2** : une famille est **libre** si $\\lambda_1\\vec u_1+\\lambda_2\\vec u_2+\\lambda_3\\vec u_3=\\vec 0$ impose $\\lambda_1=\\lambda_2=\\lambda_3=0$.\n**Proposition 1.3** : trois vecteurs de l'espace forment une base $\\iff$ ils forment une famille libre.\n[methode] Écrire le système coordonnée par coordonnée, puis commencer par l'équation qui contient le moins d'inconnues.\n[calcul] $$\\begin{cases} 2\\lambda_3=0 & (x)\\\\ -3\\lambda_1+\\lambda_2+\\lambda_3=0 & (y)\\\\ 3\\lambda_2+3\\lambda_3=0 & (z)\\end{cases}$$\n- $(x)$ : $\\cle{\\lambda_3=0}$\n- $(z)$ : $3\\lambda_2=0$, donc $\\cle{\\lambda_2=0}$\n- $(y)$ : $-3\\lambda_1=0$, donc $\\cle{\\lambda_1=0}$\n[resultat] La famille est libre et contient 3 vecteurs de l'espace : c'est une base. **$\\ok{\\text{VRAI}}$**",
+      "source": "TD1 ex 7.3",
+      "origine": "transposée",
+      "refCours": "poly §1.2.1 p.10"
+    },
+    {
+      "id": "ch1-004",
+      "chapitre": "ch1",
+      "section": "ch1.s2",
+      "type": "qcm",
+      "niveau": 1,
+      "enonce": "Une famille de **quatre** vecteurs de l'espace peut-elle être libre ?",
+      "choix": [
+        "Oui, si les quatre vecteurs ne sont pas coplanaires",
+        "Non, jamais : l'espace est de dimension 3",
+        "Oui, s'ils sont deux à deux non colinéaires",
+        "Oui, si aucun d'eux n'est nul"
+      ],
+      "reponse": 1,
+      "explication": "[cours] **Remarque 1.4** : l'espace est de **dimension 3**. Une base contient exactement 3 vecteurs, et une famille de $\\cle{4}$ vecteurs ou plus est **toujours liée**.\n[calcul] Exemple : avec $\\vec\\imath,\\vec\\jmath,\\vec k$ et $\\vec w=\\vec\\imath+\\vec\\jmath+\\vec k$,\n$$\\cle{1}\\cdot\\vec\\imath+\\cle{1}\\cdot\\vec\\jmath+\\cle{1}\\cdot\\vec k\\ \\cle{-1}\\cdot\\vec w=\\vec 0$$\nLes coefficients ne sont pas tous nuls : la famille est liée.\n[resultat] $\\ok{\\text{Non, jamais}}$ : 4 vecteurs dans un espace de dimension 3 sont forcément liés.\n[piege] « Deux à deux non colinéaires » et « aucun vecteur nul » sont des conditions sur 2 vecteurs, pas sur 4 : elles ne suffisent pas.",
+      "source": "créée",
+      "origine": "créée",
+      "refCours": "poly §1.2.1 p.10–11 (Remarque 1.4)"
+    },
+    {
+      "id": "ch1-005",
+      "chapitre": "ch1",
+      "section": "ch1.s3",
+      "type": "num",
+      "niveau": 1,
+      "enonce": "Dans une base orthonormée directe, calculer $\\vec w=\\vec u\\wedge\\vec v$ pour $\\vec u=\\begin{pmatrix}2\\\\1\\\\-1\\end{pmatrix}$ et $\\vec v=\\begin{pmatrix}0\\\\3\\\\4\\end{pmatrix}$. Réponds sous la forme $(a,b,c)$.",
+      "reponse": "(7,-8,6)",
+      "indice": "$\\begin{pmatrix}x\\\\y\\\\z\\end{pmatrix}\\wedge\\begin{pmatrix}x'\\\\y'\\\\z'\\end{pmatrix}=\\begin{pmatrix}yz'-zy'\\\\zx'-xz'\\\\xy'-yx'\\end{pmatrix}$",
+      "explication": "[cours] **Énoncé indispensable 6** (base orthonormée directe) :\n$$\\cours{\\begin{pmatrix}x\\\\y\\\\z\\end{pmatrix}\\wedge\\begin{pmatrix}x'\\\\y'\\\\z'\\end{pmatrix}=\\begin{pmatrix}yz'-zy'\\\\zx'-xz'\\\\xy'-yx'\\end{pmatrix}}$$\n[calcul] Avec $(x,y,z)=(2,1,-1)$ et $(x',y',z')=(0,3,4)$ :\n$$\\begin{aligned} yz'-zy' &= 1\\times4-(-1)\\times3=\\cle{7}\\\\ zx'-xz' &= (-1)\\times0-2\\times4=\\cle{-8}\\\\ xy'-yx' &= 2\\times3-1\\times0=\\cle{6}\\end{aligned}$$\n[resultat] $\\ok{\\vec u\\wedge\\vec v=(7,\\,-8,\\,6)}$\n[verif] $\\vec w$ doit être orthogonal à $\\vec u$ et à $\\vec v$ :\n- $\\vec w\\cdot\\vec u=14-8-6=0$ ✓\n- $\\vec w\\cdot\\vec v=0-24+24=0$ ✓\n[piege] Se tromper de signe sur la 2e composante. Elle vaut $zx'-xz'$, et non $xz'-zx'$.",
+      "source": "TD1 ex 4.1",
+      "origine": "transposée",
+      "refCours": "poly §1.3.2 p.15–17",
+      "indispensable": 6
+    },
+    {
+      "id": "ch1-006",
+      "chapitre": "ch1",
+      "section": "ch1.s3",
+      "type": "num",
+      "niveau": 2,
+      "enonce": "Dans l'espace muni d'un repère orthonormé direct, on considère $A=(1,0,0)$, $B=(0,2,0)$ et $C=(0,0,3)$. Calculer l'**aire du triangle** $ABC$.",
+      "reponse": "7/2",
+      "indice": "L'aire du parallélogramme construit sur $\\overrightarrow{AB}$ et $\\overrightarrow{AC}$ vaut $\\|\\overrightarrow{AB}\\wedge\\overrightarrow{AC}\\|$. Le triangle en est la moitié.",
+      "explication": "[cours] **Remarque 1.6 (4)** : $\\cours{\\|\\vec u\\wedge\\vec v\\|}$ est l'**aire du parallélogramme** construit sur $\\vec u$ et $\\vec v$. Un triangle en est la **moitié**.\n[calcul] $\\overrightarrow{AB}=(-1,2,0)$ et $\\overrightarrow{AC}=(-1,0,3)$\n$$\\overrightarrow{AB}\\wedge\\overrightarrow{AC}=\\begin{pmatrix}2\\times3-0\\times0\\\\ 0\\times(-1)-(-1)\\times3\\\\ (-1)\\times0-2\\times(-1)\\end{pmatrix}=\\begin{pmatrix}\\cle{6}\\\\\\cle{3}\\\\\\cle{2}\\end{pmatrix}$$\n$$\\|\\overrightarrow{AB}\\wedge\\overrightarrow{AC}\\|=\\sqrt{36+9+4}=\\sqrt{49}=\\cle{7}$$\n[resultat] Aire du triangle $=\\dfrac12\\times7=\\ok{\\dfrac72}$\n[piege] Répondre $\\ko{7}$ : c'est l'aire du **parallélogramme**, il manque le facteur $\\frac12$.",
+      "source": "créée",
+      "origine": "créée",
+      "refCours": "poly §1.3.1 p.15 (Remarque 1.6) et §1.3.4 p.17"
+    },
+    {
+      "id": "ch1-007",
+      "chapitre": "ch1",
+      "section": "ch1.s4",
+      "type": "court",
+      "niveau": 1,
+      "enonce": "Dans le plan muni d'un repère orthonormé, donner une **équation cartésienne** de la droite $D$ passant par $A=(3,1)$ et dirigée par $\\vec u=\\begin{pmatrix}-2\\\\-1\\end{pmatrix}$.",
+      "reponse": [
+        "x - 2y - 1 = 0"
+      ],
+      "variables": [
+        "x",
+        "y"
+      ],
+      "mode": "equation",
+      "format": "ax + by + c = 0 (toute équation équivalente est acceptée)",
+      "indice": "$M\\in D \\iff \\overrightarrow{AM}\\cdot\\vec v'=0$ avec $\\vec v'$ orthogonal à $\\vec u$.",
+      "explication": "[cours] **Énoncé indispensable 7** : si $D$ passe par $A=(a,b)$ et est dirigée par $\\vec v=\\begin{pmatrix}s\\\\t\\end{pmatrix}$, alors\n$$\\cours{M=(x,y)\\in D\\iff -t(x-a)+s(y-b)=0}$$\nC'est $\\overrightarrow{AM}\\cdot\\vec v'=0$, avec $\\vec v'=\\begin{pmatrix}-t\\\\s\\end{pmatrix}$ orthogonal à $\\vec v$.\n[calcul] Ici $\\cle{s=-2}$, $\\cle{t=-1}$, $a=3$, $b=1$ :\n$$\\begin{aligned}&-(-1)(x-3)+(-2)(y-1)=0\\\\ \\iff\\ &x-3-2y+2=0\\end{aligned}$$\n[resultat] $\\ok{x-2y-1=0}$. Toute équation proportionnelle, comme $-2x+4y+2=0$, est acceptée.\n[verif] $A=(3,1)$ : $3-2-1=0$ ✓. Et le vecteur directeur $\\begin{pmatrix}B\\\\-A\\end{pmatrix}=\\begin{pmatrix}-2\\\\-1\\end{pmatrix}$ redonne bien $\\vec u$ ✓.",
+      "source": "TD1 ex 3.5",
+      "origine": "transposée",
+      "refCours": "poly §1.4.2 p.20–21",
+      "indispensable": 7
+    },
+    {
+      "id": "ch1-008",
+      "chapitre": "ch1",
+      "section": "ch1.s4",
+      "type": "vf",
+      "niveau": 1,
+      "enonce": "Soit $D=\\{(-1+5\\lambda,\\ 3-2\\lambda)\\mid\\lambda\\in\\mathbb R\\}$. Le point $(4,1)$ appartient à $D$.",
+      "reponse": true,
+      "explication": "[cours] **Poly §1.4.1** : la droite passant par $A=(a,b)$ et dirigée par $\\vec u=\\begin{pmatrix}c\\\\d\\end{pmatrix}$ est $\\cours{D=\\{(a+\\lambda c,\\ b+\\lambda d)\\mid\\lambda\\in\\mathbb R\\}}$. Un point est sur $D$ si et seulement s'il existe **un** $\\lambda$ qui donne ses deux coordonnées.\n[methode] Résoudre chaque équation en $\\lambda$, puis comparer les deux valeurs obtenues.\n[calcul] $$\\begin{cases}-1+5\\lambda=4\\\\3-2\\lambda=1\\end{cases}\\iff\\begin{cases}\\lambda=\\cle{1}\\\\\\lambda=\\cle{1}\\end{cases}$$\nLes deux équations donnent la même valeur : le point est atteint pour $\\lambda=1$.\n[resultat] $\\ok{\\text{VRAI}}$ : $(4,1)=M(1)$.\n[verif] Avec l'équation cartésienne $2x+5y-13=0$ (Énoncé indispensable 7, pour $A=(-1,3)$ et $\\vec u=(5,-2)$) : $8+5-13=0$ ✓.\n[piege] Ne vérifier qu'une seule coordonnée. Si les deux équations donnent **deux $\\lambda$ différents**, le point n'est **pas** sur la droite.",
+      "source": "poly p.19–20 (Test)",
+      "origine": "transposée",
+      "refCours": "poly §1.4.1 p.18–20"
+    },
+    {
+      "id": "ch1-009",
+      "chapitre": "ch1",
+      "section": "ch1.s4",
+      "type": "court",
+      "niveau": 1,
+      "enonce": "Dans l'espace muni d'un repère orthonormé direct, donner une **équation cartésienne** du plan $P$ passant par $A=(0,1,2)$ et dirigé par $\\vec u=\\begin{pmatrix}1\\\\0\\\\1\\end{pmatrix}$ et $\\vec v=\\begin{pmatrix}0\\\\1\\\\1\\end{pmatrix}$.",
+      "reponse": [
+        "x + y - z + 1 = 0"
+      ],
+      "variables": [
+        "x",
+        "y",
+        "z"
+      ],
+      "mode": "equation",
+      "format": "ax + by + cz + d = 0",
+      "indice": "Un vecteur normal : $\\vec n=\\vec u\\wedge\\vec v$. Ensuite, $M\\in P\\iff\\overrightarrow{AM}\\cdot\\vec n=0$.",
+      "explication": "[cours] **Poly §1.4.4** : si $\\vec n$ est orthogonal à $\\vec u$ et à $\\vec v$, alors $\\cours{M\\in P\\iff\\overrightarrow{AM}\\cdot\\vec n=0}$. On prend $\\vec n=\\vec u\\wedge\\vec v$ (Énoncé indispensable 6).\n[calcul] Vecteur normal :\n$$\\vec n=\\begin{pmatrix}0\\times1-1\\times1\\\\ 1\\times0-1\\times1\\\\ 1\\times1-0\\times0\\end{pmatrix}=\\begin{pmatrix}\\cle{-1}\\\\\\cle{-1}\\\\\\cle{1}\\end{pmatrix}$$\nAvec $\\overrightarrow{AM}=(x,\\ y-1,\\ z-2)$ :\n$$\\begin{aligned}&-x-(y-1)+(z-2)=0\\\\ \\iff\\ &-x-y+z-1=0\\end{aligned}$$\n[resultat] $\\ok{x+y-z+1=0}$, ou toute équation proportionnelle.\n[verif]\n- $A$ : $0+1-2+1=0$ ✓\n- $\\vec n\\cdot\\vec u=-1+0+1=0$ ✓\n- $\\vec n\\cdot\\vec v=0-1+1=0$ ✓",
+      "source": "créée (variante TD1 ex 4)",
+      "origine": "créée",
+      "refCours": "poly §1.4.4 p.23",
+      "indispensable": 8
+    },
+    {
+      "id": "ch1-010",
+      "chapitre": "ch1",
+      "section": "ch1.s5",
+      "type": "qcm",
+      "niveau": 1,
+      "enonce": "L'ensemble des points $(x,y)$ du plan (repère orthonormé) tels que $x^2-2x+y^2-4y-4=0$ est :",
+      "choix": [
+        "le cercle de centre $(1,2)$ et de rayon $3$",
+        "le cercle de centre $(-1,-2)$ et de rayon $3$",
+        "le cercle de centre $(1,2)$ et de rayon $9$",
+        "le cercle de centre $(2,4)$ et de rayon $2$"
+      ],
+      "reponse": 0,
+      "explication": "[cours] **Énoncé indispensable 9** : le cercle de centre $(a,b)$ et de rayon $r$ a pour équation $\\cours{(x-a)^2+(y-b)^2=r^2}$.\n[methode] **Compléter les carrés** : $x^2-2px=(x-p)^2-p^2$.\n[calcul] $$\\begin{aligned}x^2-2x&=(x-\\cle{1})^2-1\\\\ y^2-4y&=(y-\\cle{2})^2-4\\end{aligned}$$\n$$\\begin{aligned}&(x-1)^2-1+(y-2)^2-4-4=0\\\\ \\iff\\ &(x-1)^2+(y-2)^2=\\cle{9}\\end{aligned}$$\n[resultat] Cercle de $\\ok{\\text{centre }(1,2)}$ et de $\\ok{\\text{rayon }3}$.\n[piege]\n- $(x-1)^2$ correspond à $a=+1$ et non $-1$ : attention au signe du centre.\n- Le membre de droite vaut $r^2=9$. Le rayon est donc $3$ et non $\\ko{9}$.",
+      "source": "TD1 ex 6.2",
+      "origine": "transposée",
+      "refCours": "poly §1.5 p.24",
+      "indispensable": 9
+    },
+    {
+      "id": "ch1-011",
+      "chapitre": "ch1",
+      "section": "ch1.s1",
+      "type": "num",
+      "niveau": 2,
+      "enonce": "Dans le plan (base orthonormée), soit $\\vec u=\\begin{pmatrix}2\\\\3\\end{pmatrix}$ et $\\vec d=\\begin{pmatrix}1\\\\1\\end{pmatrix}$. Donner les composantes du projeté orthogonal $\\vec u'$ de $\\vec u$ sur une droite de direction $\\vec d$. Réponds sous la forme $(a,b)$.",
+      "reponse": "(5/2,5/2)",
+      "indice": "$\\vec u'=\\dfrac{\\vec u\\cdot\\vec d}{\\|\\vec d\\|^2}\\,\\vec d$ (attention : $\\vec d$ n'est pas unitaire).",
+      "explication": "[cours] **Poly §1.1.5** : projeté orthogonal de $\\vec u$ sur une direction $\\vec d$ non nulle :\n$$\\cours{\\vec u'=\\frac{\\vec u\\cdot\\vec d}{\\|\\vec d\\|^2}\\,\\vec d}$$\nLa formule simplifiée $(\\vec u\\cdot\\vec\\imath)\\,\\vec\\imath$ n'est valable que si $\\|\\vec\\imath\\|=1$.\n[calcul]\n- $\\vec u\\cdot\\vec d=2\\times1+3\\times1=\\cle{5}$\n- $\\|\\vec d\\|^2=1^2+1^2=\\cle{2}$\n$$\\vec u'=\\frac{\\cle{5}}{\\cle{2}}\\begin{pmatrix}1\\\\1\\end{pmatrix}$$\n[resultat] $\\ok{\\vec u'=\\left(\\tfrac52,\\ \\tfrac52\\right)}$\n[verif] $\\vec u-\\vec u'=\\left(-\\frac12,\\frac12\\right)$ doit être orthogonal à $\\vec d$ : $-\\frac12+\\frac12=0$ ✓\n[piege] Oublier de diviser par $\\|\\vec d\\|^2$ donne $\\ko{(5,5)}$ : ici $\\vec d$ n'est **pas** unitaire.",
+      "source": "créée",
+      "origine": "créée",
+      "refCours": "poly §1.1.5 p.8"
+    },
+    {
+      "id": "ch1-012",
+      "chapitre": "ch1",
+      "section": "ch1.s1",
+      "type": "vf",
+      "niveau": 1,
+      "enonce": "Pour tous vecteurs $\\vec u,\\vec v$ : si $\\vec u\\cdot\\vec v=0$, alors $\\vec u=\\vec 0$ ou $\\vec v=\\vec 0$.",
+      "reponse": false,
+      "explication": "[cours] $\\cours{\\vec u\\cdot\\vec v=\\|\\vec u\\|\\,\\|\\vec v\\|\\cos\\theta}$, et le seul angle de $[0,\\pi]$ de cosinus nul est $\\theta=\\frac\\pi2$. Pour deux vecteurs **non nuls**, $\\vec u\\cdot\\vec v=0\\iff\\vec u\\perp\\vec v$ (poly p.7–8).\n[calcul] Contre-exemple : $\\vec u=\\begin{pmatrix}1\\\\0\\end{pmatrix}$ et $\\vec v=\\begin{pmatrix}0\\\\1\\end{pmatrix}$ sont non nuls, et pourtant\n$$\\vec u\\cdot\\vec v=1\\times0+0\\times1=\\cle{0}$$\n[resultat] $\\ok{\\text{FAUX}}$ : un produit scalaire nul signifie que les vecteurs sont **orthogonaux**, pas que l'un d'eux est nul.\n[piege] Raisonner comme avec les réels ($ab=0\\Rightarrow a=0$ ou $b=0$). Cette règle ne vaut **pas** pour le produit scalaire.",
+      "source": "créée",
+      "origine": "créée",
+      "refCours": "poly §1.1.4 p.7–8 (Remarque 1.1)"
+    }
+  ]
+}

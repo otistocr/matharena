@@ -1,0 +1,58 @@
+{
+  "chapitre": {
+    "id": "ch8",
+    "titre": "Fonctions de plusieurs variables",
+    "court": "Plusieurs var.",
+    "parcours": "sorbonne",
+    "ordre": 8,
+    "pages": "poly p.169–208",
+    "sections": [
+      {
+        "id": "ch8.s1",
+        "titre": "Définitions, graphes, lignes de niveau",
+        "ref": "poly §8.1–8.2 p.169"
+      },
+      {
+        "id": "ch8.s2",
+        "titre": "Courbes paramétrées, champs de vecteurs",
+        "ref": "poly §8.3 p.179"
+      },
+      {
+        "id": "ch8.s3",
+        "titre": "Dérivées partielles, gradient, 1er ordre",
+        "ref": "poly §8.4 p.181"
+      },
+      {
+        "id": "ch8.s4",
+        "titre": "Gradient et lignes de niveau",
+        "ref": "poly §8.5 p.186"
+      },
+      {
+        "id": "ch8.s5",
+        "titre": "Plan tangent au graphe",
+        "ref": "poly §8.6 p.189"
+      },
+      {
+        "id": "ch8.s6",
+        "titre": "Extrema et points critiques",
+        "ref": "poly §8.7 p.190"
+      },
+      {
+        "id": "ch8.s7",
+        "titre": "Dérivées secondes, Schwarz, 2e ordre",
+        "ref": "poly §8.8 p.191"
+      },
+      {
+        "id": "ch8.s8",
+        "titre": "Étude des points critiques (rt − s²)",
+        "ref": "poly §8.9 p.193"
+      },
+      {
+        "id": "ch8.s9",
+        "titre": "Pour aller plus loin : polaires, opérateurs",
+        "ref": "poly §8.10–8.11 p.199"
+      }
+    ]
+  },
+  "questions": []
+}

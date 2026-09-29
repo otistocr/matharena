@@ -1,0 +1,38 @@
+{
+  "chapitre": {
+    "id": "ch3",
+    "titre": "Logique, ensembles et raisonnements",
+    "court": "Logique",
+    "parcours": "sorbonne",
+    "ordre": 3,
+    "pages": "poly p.57–90",
+    "sections": [
+      {
+        "id": "ch3.s1",
+        "titre": "Logique classique : connecteurs, négation, contraposée",
+        "ref": "poly §3.1 p.57"
+      },
+      {
+        "id": "ch3.s2",
+        "titre": "Quantificateurs et leur négation",
+        "ref": "poly §3.2.1–3.2.3 p.66"
+      },
+      {
+        "id": "ch3.s3",
+        "titre": "Opérations sur les ensembles, produit cartésien, parties",
+        "ref": "poly §3.2.4–3.2.6 p.71"
+      },
+      {
+        "id": "ch3.s4",
+        "titre": "Applications, injections, surjections, bijections",
+        "ref": "poly §3.2.7–3.2.10 p.74"
+      },
+      {
+        "id": "ch3.s5",
+        "titre": "Démonstrations et raisonnements",
+        "ref": "poly §3.3 p.82"
+      }
+    ]
+  },
+  "questions": []
+}

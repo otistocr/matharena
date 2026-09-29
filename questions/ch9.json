@@ -1,0 +1,38 @@
+{
+  "chapitre": {
+    "id": "ch9",
+    "titre": "Introduction à l’algèbre linéaire",
+    "court": "Algèbre lin.",
+    "parcours": "sorbonne",
+    "ordre": 9,
+    "pages": "poly p.209–222",
+    "sections": [
+      {
+        "id": "ch9.s1",
+        "titre": "Applications linéaires",
+        "ref": "poly §9.1 p.209"
+      },
+      {
+        "id": "ch9.s2",
+        "titre": "Matrices et calcul matriciel",
+        "ref": "poly §9.2 p.213"
+      },
+      {
+        "id": "ch9.s3",
+        "titre": "Déterminant et inversion",
+        "ref": "poly §9.3 p.217"
+      },
+      {
+        "id": "ch9.s4",
+        "titre": "Lien avec les nombres complexes",
+        "ref": "poly §9.4 p.220"
+      },
+      {
+        "id": "ch9.s5",
+        "titre": "Application hors des mathématiques",
+        "ref": "poly §9.5 p.221"
+      }
+    ]
+  },
+  "questions": []
+}

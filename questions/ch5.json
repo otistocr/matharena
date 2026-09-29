@@ -1,0 +1,28 @@
+{
+  "chapitre": {
+    "id": "ch5",
+    "titre": "Intégration",
+    "court": "Intégration",
+    "parcours": "sorbonne",
+    "ordre": 5,
+    "pages": "poly p.123–134",
+    "sections": [
+      {
+        "id": "ch5.s1",
+        "titre": "Propriétés générales de l’intégrale",
+        "ref": "poly §5.1 p.123"
+      },
+      {
+        "id": "ch5.s2",
+        "titre": "Primitives et intégrales",
+        "ref": "poly §5.2 p.125"
+      },
+      {
+        "id": "ch5.s3",
+        "titre": "IPP et changement de variable",
+        "ref": "poly §5.3 p.127"
+      }
+    ]
+  },
+  "questions": []
+}
