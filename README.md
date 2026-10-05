@@ -13,6 +13,7 @@ progression par chapitre et par section. Corrections en blocs colorés. PWA 100 
 | `npm run validate-questions` | vérifie toutes les banques (refuse toute question sans réponse ni explication) |
 | `npm run new-chapter -- <id> "<Titre>" "<Court>" [sorbonne\|lycee]` | crée un nouveau fichier de banque |
 | `npm run build` | validation + typage + build dans `dist/` |
+| `npm run deploy` | tests + build + publication sur GitHub Pages |
 
 ## Contenu
 
@@ -35,12 +36,13 @@ Arborescence des chapitres : `docs/arborescence.md`. Les documents sources (`sou
 
 ## Déploiement (GitHub Pages)
 
-1. Crée un dépôt GitHub (ex. `matharena`) et pousse la branche `main`.
-2. Dans le dépôt : **Settings → Pages → Source : GitHub Actions**.
-3. Chaque `git push` sur `main` teste, valide les questions, build et déploie
-   (`.github/workflows/deploy.yml`). URL : `https://<pseudo>.github.io/matharena/`.
+`npm run deploy` : lance les tests, construit l'appli et envoie `dist/` sur la branche `gh-pages`
+(GitHub Pages sert cette branche). L'appli est en ligne une à deux minutes plus tard.
 
-Sur iPhone/iPad : ouvre l’URL dans Safari → Partager → **Sur l’écran d’accueil**.
+Sur iPhone/iPad : ouvre l'adresse dans Safari → Partager → **Sur l'écran d'accueil**.
+
+Variante automatique : `docs/deploy-github-actions.yml.exemple` (à placer dans `.github/workflows/`,
+demande un jeton GitHub avec le droit `workflow`).
 
 ## Données
 

@@ -13,7 +13,8 @@
     "pyodide": "node scripts/copy-pyodide.mjs",
     "predev": "npm run pyodide",
     "prebuild": "npm run pyodide",
-    "pretest": "npm run pyodide"
+    "pretest": "npm run pyodide",
+    "deploy": "sh scripts/deploy.sh"
   },
   "dependencies": {
     "idb": "^8.0.3",
