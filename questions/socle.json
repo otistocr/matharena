@@ -71,6 +71,31 @@
         "id": "socle.s13",
         "titre": "Fonctions : domaine, parité, composition",
         "ref": "LE SOCLE ch. 9 · poly §4.1"
+      },
+      {
+        "id": "socle.s14",
+        "titre": "Priorités, signes, isoler une inconnue, mise en équation",
+        "ref": "prérequis L1 · GMAT Math Cheat Sheet"
+      },
+      {
+        "id": "socle.s15",
+        "titre": "Inégalités, encadrements, intervalles",
+        "ref": "prérequis L1"
+      },
+      {
+        "id": "socle.s16",
+        "titre": "Sommes Σ, factorielles, binôme",
+        "ref": "prérequis L1 · poly §3.3"
+      },
+      {
+        "id": "socle.s17",
+        "titre": "Arithmétique : divisibilité, PGCD, nombres premiers",
+        "ref": "GMAT Math Cheat Sheet"
+      },
+      {
+        "id": "socle.s18",
+        "titre": "Suites arithmétiques et géométriques",
+        "ref": "prérequis L1 · poly §2.1.8"
       }
     ]
   },

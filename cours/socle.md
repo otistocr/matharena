@@ -112,3 +112,49 @@ Les bases de calcul qui servent partout en L1. Une base fragile en amont se paie
 - $(g\circ f)(x)=g(f(x))$ : la sortie de $f$ entre dans $g$. **L'ordre compte**.
 [exemple] $f(x)=\frac{\sqrt{x+2}}{x-3}$ : $D_f=[-2,3[\cup]3,+\infty[$. Avec $f(x)=x+1$, $g(x)=x^2$ : $(g\circ f)(x)=(x+1)^2$ mais $(f\circ g)(x)=x^2+1$.
 [piege] Une constante est un terme **pair** : $x^3+1$ n'est ni paire ni impaire.
+
+## Priorités, signes, isoler une inconnue {#socle.s14}
+[cours] **Ordre des opérations** : parenthèses, puis puissances, puis $\times$ et $\div$, puis $+$ et $-$ ; de gauche à droite à priorité égale.
+- Signes : $(-)\times(-)=(+)$ ; $-a^2\neq(-a)^2$ ; un moins devant une parenthèse change **tous** les signes.
+- **Même opération des deux côtés** : $\cours{A=B\iff A+c=B+c}$ et, si $c\neq0$, $\cours{A=B\iff cA=cB}$.
+- **Produit en croix** : $\cours{\frac ab=\frac cd\iff ad=bc}$ (dénominateurs non nuls).
+- Mise en équation : $\cours{d=v\times t}$ ; travail $=$ débit $\times$ temps, et les **débits s'additionnent**.
+[methode] **Isoler une variable** : défaire les opérations dans l'ordre inverse ; si l'inconnue apparaît deux fois, la regrouper d'un côté et **factoriser**.
+[exemple] $y=\frac x{x+1}\Rightarrow yx+y=x\Rightarrow y=x(1-y)\Rightarrow x=\frac y{1-y}$. Deux robinets (3 h et 6 h) : $\frac13+\frac16=\frac12$, donc 2 h ensemble.
+[piege] Une vitesse moyenne sur un aller-retour n'est pas la moyenne des vitesses. Et $12\div3\times2=8$, pas $2$.
+
+## Inégalités, encadrements, intervalles {#socle.s15}
+[cours] On peut ajouter un même nombre aux deux membres, et additionner deux inégalités de même sens.
+- Multiplier par $c>0$ **garde** le sens ; par $c<0$ le **change**.
+- Pour $0<a<b$ : $\cours{\frac1b<\frac1a}$ et $a^2<b^2$. Le carré n'est croissant que sur $[0,+\infty[$.
+- $\cours{x^2\le k^2\iff-k\le x\le k}$ ; $x^2>k^2\iff x>k$ **ou** $x<-k$.
+- Intervalles : $I\cap J$ (dans les deux), $I\cup J$ (dans l'un au moins) ; crochet vers l'intérieur = borne incluse.
+[methode] **Encadrer** : partir de l'encadrement de $x$ et appliquer les opérations une à une, en retournant l'encadrement à chaque multiplication par un négatif ou passage à l'inverse.
+[exemple] $-2\le x\le3\Rightarrow-9\le-3x\le6\Rightarrow-8\le-3x+1\le7$ ; et $0\le x^2\le9$.
+[piege] On ne soustrait pas et on ne divise pas des inégalités membre à membre. On ne multiplie pas par $x$ sans connaître son signe.
+
+## Sommes Σ, factorielles, binôme {#socle.s16}
+[cours] $\sum_{k=m}^nu_k=u_m+u_{m+1}+\dots+u_n$ a $\cours{n-m+1}$ termes ; la somme est linéaire.
+- $\cours{\sum_{k=1}^nk=\frac{n(n+1)}2}$, $\sum_{k=1}^nk^2=\frac{n(n+1)(2n+1)}6$, $\cours{\sum_{k=0}^nq^k=\frac{q^{n+1}-1}{q-1}}$ ($q\neq1$).
+- Télescopage : $\sum_{k=1}^n(a_k-a_{k+1})=a_1-a_{n+1}$.
+- $\cours{n!=n\times(n-1)!}$, $0!=1$ ; $\cours{\binom nk=\frac{n!}{k!(n-k)!}}$, $\binom nk=\binom n{n-k}$, $\binom n2=\frac{n(n-1)}2$.
+- **Binôme de Newton** : $\cours{(a+b)^n=\sum_{k=0}^n\binom nka^kb^{n-k}}$ ; $(a+b)^3=a^3+3a^2b+3ab^2+b^3$.
+[exemple] $\frac{10!}{8!}=10\times9=90$ ; coefficient de $x^2$ dans $(x+2)^4$ : $\binom42\times2^2=24$.
+[piege] $\sum_{k=1}^n3=3n$. $(a+b)^3\neq a^3+b^3$. $(n+1)!\neq n!+1$.
+
+## Arithmétique : divisibilité, PGCD, nombres premiers {#socle.s17}
+[cours] **Division euclidienne** : $\cours{a=bq+r,\ 0\le r<b}$. Tout entier $\ge2$ se décompose de façon **unique** en produit de nombres premiers.
+- Critères : par 2, 5, 10 (dernier chiffre) ; par 3, 9 (somme des chiffres) ; par 4 (deux derniers chiffres).
+- **PGCD** : plus petits exposants ; **PPCM** : plus grands exposants ; $\operatorname{pgcd}\times\operatorname{ppcm}=ab$.
+- $N=p_1^{a_1}\cdots p_r^{a_r}$ a $(a_1+1)\cdots(a_r+1)$ diviseurs positifs.
+- Parité : impair $+$ impair $=$ pair ; un produit est impair seulement si tous les facteurs le sont.
+[methode] **Reste d'une grande puissance** : calculer les restes des premières puissances, repérer le cycle, réduire l'exposant modulo la période.
+[exemple] $84=2^2\times3\times7$, $126=2\times3^2\times7$ : PGCD $=42$, PPCM $=252$. Chiffre des unités de $7^{50}$ : cycle $7,9,3,1$ ; $50=4\times12+2$, donc $9$.
+[piege] $1$ n'est pas premier ; $2$ est premier. Le reste est toujours positif : $-17=5\times(-4)+3$.
+
+## Suites arithmétiques et géométriques {#socle.s18}
+[cours] **Arithmétique** (raison $r$) : $\cours{u_n=u_0+nr}$ ; somme $=$ nombre de termes $\times\frac{\text{premier}+\text{dernier}}2$.
+- **Géométrique** (raison $q$) : $\cours{u_n=u_0q^n}$ ; $u_0+\dots+u_n=u_0\frac{q^{n+1}-1}{q-1}$ ; $(q^n)$ tend vers $0$ si $|q|<1$.
+[methode] Raison arithmétique : $\frac{u_m-u_p}{m-p}$. Raison géométrique : quotient de deux termes consécutifs.
+[exemple] $u_0=3$, $r=4$ : $u_{10}=43$ et $u_0+\dots+u_{10}=11\times\frac{3+43}2=253$.
+[piege] De $u_0$ à $u_n$ il y a $n+1$ termes.
