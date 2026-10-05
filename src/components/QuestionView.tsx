@@ -13,6 +13,8 @@ export interface Verdict {
   conteste?: boolean
   /** Ce qui a été répondu (texte lisible). */
   saisie?: string
+  /** Exercice de code : nombre de lancements des tests avant la réussite. */
+  essais?: number
 }
 
 /** Où en était la question avant de répondre (pour un message adapté). */
@@ -28,6 +30,7 @@ const BRAVO = ['Bien joué !', 'Exact !', 'Parfait.', 'Nickel !', 'Bien vu !', '
 export function message(v: Verdict, ctx?: Contexte): string {
   if (v.score >= 1) {
     if (v.conteste) return '✓ Compté juste'
+    if (v.essais && v.essais > 1) return `✓ Tous les tests passent, au ${v.essais}ᵉ essai. Bien joué d’avoir corrigé !`
     if (ctx?.statut === 'erreur')
       return ctx.reussites + 1 >= REUSSITES_POUR_CORRIGER ? '🎉 Erreur corrigée : elle sort de ton cahier !' : '✓ Bien ! Encore une réussite et elle sort du cahier.'
     if (ctx?.statut === 'nouvelle') return `✓ ${BRAVO[Math.floor(Math.random() * BRAVO.length)]} Du premier coup.`
@@ -135,8 +138,8 @@ export function QuestionView({ q, indices, rapide, onFin, contexte }: Props) {
   const [secousse, setSecousse] = useState(0)
   const [avertissement, setAvertissement] = useState<string | null>(null)
 
-  const conclure = (score: number, rep?: string) => {
-    const v: Verdict = { score, saisie: rep }
+  const conclure = (score: number, rep?: string, nbEssais?: number) => {
+    const v: Verdict = { score, saisie: rep, ...(nbEssais ? { essais: nbEssais } : {}) }
     if (rapide) return onFin(v)
     setVerdict(v)
   }
@@ -253,8 +256,8 @@ export function QuestionView({ q, indices, rapide, onFin, contexte }: Props) {
             tests={q.tests}
             disabled={!!verdict}
             onResultat={(_, reussi) => {
-              setEssais((n) => n + 1)
-              if (reussi && !verdict) conclure(1)
+              setEssais(essais + 1)
+              if (reussi && !verdict) conclure(1, undefined, essais + 1)
             }}
           />
           {!verdict && (

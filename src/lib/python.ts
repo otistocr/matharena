@@ -39,7 +39,27 @@ function demarrer(): Promise<void> {
     w.addEventListener('error', () => reject(new Error('Impossible de charger Python (connexion nécessaire la première fois).')))
   })
   pret.catch(arreter)
+  pret.then(garderHorsLigne, () => {})
   return pret
+}
+
+const FICHIERS = ['pyodide.mjs', 'pyodide.asm.mjs', 'pyodide.asm.wasm', 'python_stdlib.zip', 'pyodide-lock.json']
+
+/**
+ * Range le moteur Python dans le cache hors-ligne dès la première utilisation. (À la toute première
+ * visite, le service worker ne contrôle pas encore la page et n'a donc pas vu passer ces fichiers.)
+ */
+async function garderHorsLigne() {
+  if (!('caches' in window)) return
+  try {
+    const cache = await caches.open('pyodide')
+    for (const f of FICHIERS) {
+      const url = new URL(`pyodide/${f}`, document.baseURI).href
+      if (!(await cache.match(url))) await cache.add(url)
+    }
+  } catch {
+    // pas de cache disponible (navigation privée…) : Python reste utilisable en ligne
+  }
 }
 
 function arreter() {
