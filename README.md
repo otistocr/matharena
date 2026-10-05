@@ -14,6 +14,11 @@ progression par chapitre et par section. Corrections en blocs colorés. PWA 100 
 | `npm run new-chapter -- <id> "<Titre>" "<Court>" [sorbonne\|lycee]` | crée un nouveau fichier de banque |
 | `npm run build` | validation + typage + build dans `dist/` |
 
+## Contenu
+
+Maths UL1MA001 (Socle, Trigonométrie, chapitres du poly) et **Informatique UL1IN011** (chapitre `info` : Python typé, d’après les cours d’amphi).
+Les énoncés et corrections acceptent du code : `` `code` `` en ligne et blocs entre lignes ` ``` `.
+
 ## Banques de questions
 
 Un fichier par chapitre dans `questions/` : métadonnées du chapitre (sections) + questions.

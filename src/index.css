@@ -79,6 +79,10 @@ body { min-height: 100dvh; overscroll-behavior-y: none; }
 .bloc-verif    { --b-ink: var(--verif);   --b-bg: var(--verif-bg);   --b-line: var(--verif-line); }
 .bloc-exemple  { --b-ink: var(--cle);     --b-bg: var(--calcul-bg);  --b-line: var(--cle); }
 .rich h3 { margin: 1rem 0 0.3rem; font-weight: 650; font-size: 1rem; }
+/* Code (partie informatique) */
+.rich code { font-family: var(--font-mono); font-size: 0.88em; background: var(--calcul-bg); border: 1px solid var(--line); border-radius: 4px; padding: 0.05em 0.3em; }
+.rich pre.code { margin: 0.5rem 0; padding: 0.6rem 0.75rem; background: var(--calcul-bg); border: 1px solid var(--line); border-radius: 8px; overflow-x: auto; text-align: left; font-size: 0.82rem; line-height: 1.5; }
+.rich pre.code code { background: none; border: 0; padding: 0; font-size: inherit; white-space: pre; }
 
 /* Surligneurs dans les formules : \ok{} \cle{} \cours{} \ko{} */
 .hl-ok    { color: var(--ok); font-weight: 600; }

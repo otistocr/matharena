@@ -1,0 +1,19 @@
+{
+  "chapitre": {
+    "id": "info",
+    "titre": "Informatique — Éléments de programmation (UL1IN011)",
+    "court": "Informatique",
+    "parcours": "sorbonne",
+    "ordre": 10,
+    "pages": "UL1IN011, cours d’amphi 1 et 2 (2026)",
+    "sections": [
+      { "id": "info.s1", "titre": "Expressions, types, opérateurs", "ref": "cours 1" },
+      { "id": "info.s2", "titre": "Fonctions : spécification, appel, return", "ref": "cours 1 et 2" },
+      { "id": "info.s3", "titre": "Variables et affectations", "ref": "cours 1" },
+      { "id": "info.s4", "titre": "Alternatives et booléens", "ref": "cours 1 et 2" },
+      { "id": "info.s5", "titre": "Boucles while et simulation", "ref": "cours 2" },
+      { "id": "info.s6", "titre": "Suites, Euclide, terminaison", "ref": "cours 2" }
+    ]
+  },
+  "questions": []
+}

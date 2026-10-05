@@ -67,14 +67,21 @@ function paragraphes(lines: string[]): string {
 
 /**
  * Rend un texte « Markdown léger + LaTeX » :
- * $…$ en ligne, $$…$$ en bloc, **gras**, lignes « - » en liste, retours à la ligne = paragraphes,
+ * $…$ en ligne, $$…$$ en bloc, **gras**, `code` et blocs ```…```, lignes « - » en liste,
+ * retours à la ligne = paragraphes,
  * lignes « [cours] », « [calcul] »… = blocs colorés.
  */
 export function richHtml(text: string): string {
   // Les formules sont rendues à part (le HTML de KaTeX contient des retours à la ligne)
   // puis réinjectées via des marqueurs après la mise en paragraphes.
   const formules: string[] = []
-  const html = text
+  // Code (partie informatique) : blocs ```…``` et `code` en ligne, mis de côté avant tout le reste
+  // pour que ni les $ ni les ** du code ne soient interprétés.
+  const codes: string[] = []
+  const sansCode = text
+    .replace(/```\n?([\s\S]*?)\n?```/g, (_, c: string) => `\n\u0001${codes.push(`<pre class="code"><code>${escapeHtml(c)}</code></pre>`) - 1}\u0001\n`)
+    .replace(/`([^`\n]+)`/g, (_, c: string) => `\u0001${codes.push(`<code>${escapeHtml(c)}</code>`) - 1}\u0001`)
+  const html = sansCode
     .split(/(\$\$[\s\S]+?\$\$|\$[^$\n]+?\$)/g)
     .map((p) => {
       if (p.startsWith('$$')) return `\u0000${formules.push(renderMath(p.slice(2, -2), true)) - 1}\u0000`
@@ -105,7 +112,11 @@ export function richHtml(text: string): string {
   }
   out.push(paragraphes(libres))
   fermer()
-  return out.join('').replace(/\u0000(\d+)\u0000/g, (_, i) => formules[Number(i)])
+  return out
+    .join('')
+    .replace(/<p>\u0001(\d+)\u0001<\/p>/g, (_, i) => codes[Number(i)])
+    .replace(/\u0001(\d+)\u0001/g, (_, i) => codes[Number(i)])
+    .replace(/\u0000(\d+)\u0000/g, (_, i) => formules[Number(i)])
 }
 
 export function Tex({ children, className = '' }: { children: string; className?: string }) {
