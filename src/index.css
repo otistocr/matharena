@@ -77,6 +77,8 @@ body { min-height: 100dvh; overscroll-behavior-y: none; }
 .bloc-resultat { --b-ink: var(--ok);      --b-bg: var(--ok-bg);      --b-line: var(--ok-line); }
 .bloc-piege    { --b-ink: var(--ko);      --b-bg: var(--ko-bg);      --b-line: var(--ko-line); }
 .bloc-verif    { --b-ink: var(--verif);   --b-bg: var(--verif-bg);   --b-line: var(--verif-line); }
+.bloc-exemple  { --b-ink: var(--cle);     --b-bg: var(--calcul-bg);  --b-line: var(--cle); }
+.rich h3 { margin: 1rem 0 0.3rem; font-weight: 650; font-size: 1rem; }
 
 /* Surligneurs dans les formules : \ok{} \cle{} \cours{} \ko{} */
 .hl-ok    { color: var(--ok); font-weight: 600; }

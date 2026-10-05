@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { NIVEAUX, type Question } from '../data/schema'
 import { titreSection } from '../data/bank'
-import { checkExpression, checkNumeric, toLatex } from '../lib/mathexpr'
+import { checkExpression, checkNumeric, respecteForme, toLatex } from '../lib/mathexpr'
 import { MathInput } from './MathInput'
 import { REUSSITES_POUR_CORRIGER, type Statut } from '../lib/session'
 import { Tex } from './Tex'
@@ -69,7 +69,11 @@ const affichage = (s: string) => {
 }
 
 const juste = (q: Question, saisie: string) =>
-  q.type === 'num' ? checkNumeric(saisie, q.reponse, q.tolerance) : q.type === 'court' ? checkExpression(saisie, q.reponse, q.variables, q.mode) : false
+  q.type === 'num'
+    ? checkNumeric(saisie, q.reponse, q.tolerance)
+    : q.type === 'court'
+      ? checkExpression(saisie, q.reponse, q.variables, q.mode) && (!q.forme || respecteForme(saisie, q.forme))
+      : false
 
 /** Ligne discrète au-dessus de l'énoncé : section · niveau · ★. */
 export function Meta({ q }: { q: Question }) {
@@ -126,6 +130,7 @@ export function QuestionView({ q, indices, rapide, onFin, contexte }: Props) {
   const [verdict, setVerdict] = useState<Verdict | null>(null)
   const [indiceVu, setIndiceVu] = useState(false)
   const [secousse, setSecousse] = useState(0)
+  const [avertissement, setAvertissement] = useState<string | null>(null)
 
   const conclure = (score: number, rep?: string) => {
     const v: Verdict = { score, saisie: rep }
@@ -136,11 +141,17 @@ export function QuestionView({ q, indices, rapide, onFin, contexte }: Props) {
   // Zetamac : dès que la saisie est juste, c'est validé — pas besoin d'Entrée.
   const changer = (v: string) => {
     setSaisie(v)
+    setAvertissement(null)
     if (!verdict && v.trim() && juste(q, v)) conclure(1, affichage(v))
   }
   const entree = () => {
     if (verdict) return
     if (juste(q, saisie)) return conclure(1, affichage(saisie))
+    // valeur juste mais forme non demandée : on prévient au lieu de compter faux
+    if (q.type === 'court' && q.forme && checkExpression(saisie, q.reponse, q.variables, q.mode)) {
+      setSecousse((s) => s + 1)
+      return setAvertissement(q.forme === 'developpee' ? 'C’est égal, mais pas développé : enlève les parenthèses.' : 'C’est égal, mais pas factorisé : écris un produit.')
+    }
     if (rapide) return setSecousse((s) => s + 1)
     conclure(0, affichage(saisie))
   }
@@ -222,6 +233,7 @@ export function QuestionView({ q, indices, rapide, onFin, contexte }: Props) {
             egal={q.type === 'court' && q.mode === 'equation'}
             secousse={secousse}
           />
+          {avertissement && <p className="text-center text-sm font-medium text-[var(--cle)]">{avertissement}</p>}
           {q.type === 'court' && q.format && <p className="text-center text-xs text-[var(--muted)]">{q.format}</p>}
           {q.type === 'num' && q.unite && <p className="text-center text-xs text-[var(--muted)]">Unité : {q.unite}</p>}
           {!verdict && !rapide && (

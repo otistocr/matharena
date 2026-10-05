@@ -6,6 +6,7 @@ import { Barre, Legende } from '../components/Barre'
 import { Tex } from '../components/Tex'
 import { chargerStatuts, type Statut } from '../lib/session'
 import { useAsync } from '../lib/useAsync'
+import { getFiche } from '../data/cours'
 
 const PASTILLE: Record<Statut, { c: string; t: string }> = {
   nouvelle: { c: 'var(--line)', t: 'jamais vue' },
@@ -36,7 +37,7 @@ export function ChapitrePage() {
       <header className="space-y-3 text-center">
         <div>
           <p className="text-sm text-[var(--muted)]">
-            {ch.ordre === 0 ? 'Fondamentaux' : `Chapitre ${ch.ordre}`} · {ch.pages}
+            {ch.ordre <= 0 ? 'Fondamentaux' : `Chapitre ${ch.ordre}`} · {ch.pages}
           </p>
           <h1 className="mt-1 text-2xl font-semibold">{ch.titre}</h1>
         </div>
@@ -46,6 +47,12 @@ export function ChapitrePage() {
           <span className="text-[var(--muted)]">{nb('nouvelle')} jamais vues</span>
         </p>
       </header>
+
+      {getFiche(id) && (
+        <Link to={`/cours/${id}`} className="block rounded-md border border-[var(--cours-line)] bg-[var(--cours-bg)] px-4 py-3 text-center font-semibold text-[var(--cours)]">
+          📘 Lire la fiche de cours
+        </Link>
+      )}
 
       <div className="grid grid-cols-2 gap-2">
         <button onClick={() => nav(`/jouer?mode=entrainement&ch=${id}`)} className="rounded-md bg-[var(--ink)] py-3 font-semibold text-[var(--bg)]">

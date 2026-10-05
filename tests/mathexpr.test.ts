@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { checkNumeric, checkExpression, parse, toLatex } from '../src/lib/mathexpr'
+import { checkNumeric, checkExpression, parse, respecteForme, toLatex } from '../src/lib/mathexpr'
 
 describe('réponses numériques', () => {
   it('formes équivalentes simples', () => {
@@ -87,5 +87,22 @@ describe('parseur et aperçu', () => {
     expect(toLatex('sqrt(3)/2')).toBe('\\frac{\\sqrt{3}}{2}')
     expect(toLatex('x^2+1')).toBe('{x}^{2} + 1')
     expect(toLatex('2+')).toBeNull()
+  })
+})
+
+describe('forme exigée', () => {
+  it('développée', () => {
+    expect(respecteForme('4x^2-12x+9', 'developpee')).toBe(true)
+    expect(respecteForme('(2x-3)^2', 'developpee')).toBe(false)
+    expect(respecteForme('3x(x+1)', 'developpee')).toBe(false)
+    expect(respecteForme('-(x+1)', 'developpee')).toBe(false)
+  })
+  it('factorisée', () => {
+    expect(respecteForme('(x-3)(x+3)', 'factorisee')).toBe(true)
+    expect(respecteForme('3x(2x+3)', 'factorisee')).toBe(true)
+    expect(respecteForme('(x+3)^2', 'factorisee')).toBe(true)
+    expect(respecteForme('-2(x-1)(x+4)', 'factorisee')).toBe(true)
+    expect(respecteForme('x^2-9', 'factorisee')).toBe(false)
+    expect(respecteForme('(x^2-9)', 'factorisee')).toBe(false)
   })
 })

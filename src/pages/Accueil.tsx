@@ -49,7 +49,7 @@ export function Accueil() {
             <option value="tout">Tous les chapitres</option>
             {actifs.map((c) => (
               <option key={c.id} value={c.id}>
-                {c.ordre ? `${c.ordre}. ` : ''}{c.titre}
+                {c.ordre > 0 ? `${c.ordre}. ` : ''}{c.titre}
               </option>
             ))}
           </select>
@@ -85,7 +85,7 @@ export function Accueil() {
           if (!n)
             return (
               <p key={c.id} className="text-sm text-[var(--muted)]">
-                {c.ordre ? `${c.ordre}. ` : ''}{c.titre} — bientôt
+                {c.ordre > 0 ? `${c.ordre}. ` : ''}{c.titre} — bientôt
               </p>
             )
           const r = compte(c.id, 'reussie')
@@ -94,7 +94,7 @@ export function Accueil() {
             <Link key={c.id} to={`/chapitre/${c.id}`} className="block space-y-1.5">
               <span className="flex items-baseline justify-between gap-2 text-sm">
                 <span className="font-medium">
-                  {c.ordre ? `${c.ordre}. ` : ''}{c.titre}
+                  {c.ordre > 0 ? `${c.ordre}. ` : ''}{c.titre}
                 </span>
                 <span className="shrink-0 font-mono text-xs text-[var(--muted)]">
                   {r}/{n}

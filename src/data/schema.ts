@@ -74,6 +74,8 @@ export const CourtQuestion = base.extend({
   mode: z.enum(['expression', 'equation']).default('expression'),
   /** Aide à la saisie affichée sous le champ, ex. "forme ax+by+c=0". */
   format: z.string().optional(),
+  /** Forme exigée en plus de l'égalité (sinon recopier l'énoncé serait « juste »). */
+  forme: z.enum(['developpee', 'factorisee']).optional(),
 })
 
 export const RedactionQuestion = base.extend({

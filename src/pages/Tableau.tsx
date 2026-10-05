@@ -64,7 +64,7 @@ export function Tableau() {
           if (!ids.length)
             return (
               <p key={c.id} className="text-sm text-[var(--muted)]">
-                {c.ordre ? `${c.ordre}. ` : ''}{c.titre} — bientôt
+                {c.ordre > 0 ? `${c.ordre}. ` : ''}{c.titre} — bientôt
               </p>
             )
           const r = compte(ids, 'reussie')
@@ -74,7 +74,7 @@ export function Tableau() {
               <summary className="cursor-pointer list-none space-y-1.5">
                 <div className="flex items-baseline justify-between gap-2 text-sm">
                   <span className="font-medium">
-                    {c.ordre ? `${c.ordre}. ` : ''}{c.titre}
+                    {c.ordre > 0 ? `${c.ordre}. ` : ''}{c.titre}
                   </span>
                   <span className="shrink-0 font-mono text-xs">
                     <span className="text-[var(--ok)]">{r}</span>

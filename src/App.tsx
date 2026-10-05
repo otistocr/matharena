@@ -5,6 +5,7 @@ import { Session } from './pages/Session'
 import { Tableau } from './pages/Tableau'
 import { Reglages } from './pages/Reglages'
 import { Cahier } from './pages/Cahier'
+import { CoursFiche, CoursListe } from './pages/Cours'
 
 function Onglets() {
   const loc = useLocation()
@@ -16,6 +17,9 @@ function Onglets() {
       <div className="mx-auto flex max-w-3xl">
         <NavLink to="/" end className={lien}>
           <span className="text-xl">♟</span>Jouer
+        </NavLink>
+        <NavLink to="/cours" className={lien}>
+          <span className="text-xl">📘</span>Cours
         </NavLink>
         <NavLink to="/cahier" className={lien}>
           <span className="text-xl">📒</span>Cahier
@@ -41,6 +45,8 @@ export function App() {
           <Route path="/jouer" element={<Session />} />
           <Route path="/tableau" element={<Tableau />} />
           <Route path="/cahier" element={<Cahier />} />
+          <Route path="/cours" element={<CoursListe />} />
+          <Route path="/cours/:id" element={<CoursFiche />} />
           <Route path="/reglages" element={<Reglages />} />
         </Routes>
       </main>

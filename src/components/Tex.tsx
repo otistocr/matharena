@@ -33,15 +33,24 @@ export const BLOCS = {
   resultat: { label: 'Résultat', icone: '✅' },
   piege: { label: 'Piège', icone: '⚠️' },
   verif: { label: 'Vérification', icone: '🔎' },
+  exemple: { label: 'Exemple', icone: '💡' },
 } as const
 export type Bloc = keyof typeof BLOCS
-const TAG = /^\[(cours|methode|calcul|resultat|piege|verif)\]\s*(.*)$/
+const TAG = /^\[(cours|methode|calcul|resultat|piege|verif|exemple)\]\s*(.*)$/
 
 /** Paragraphes + listes « - » pour un morceau de texte déjà converti en HTML (formules en marqueurs). */
 function paragraphes(lines: string[]): string {
   const out: string[] = []
   let list: string[] | null = null
   for (const line of lines) {
+    if (line.startsWith('### ')) {
+      if (list) {
+        out.push(`<ul>${list.join('')}</ul>`)
+        list = null
+      }
+      out.push(`<h3>${line.slice(4)}</h3>`)
+      continue
+    }
     if (line.startsWith('- ')) {
       ;(list ??= []).push(`<li>${line.slice(2)}</li>`)
       continue

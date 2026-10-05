@@ -3,7 +3,7 @@
  * `npm run validate-questions` et les tests.
  */
 import { Question } from './schema'
-import { checkExpression, checkNumeric } from '../lib/mathexpr'
+import { checkExpression, checkNumeric, respecteForme } from '../lib/mathexpr'
 
 const TAGS = new Set(['cours', 'methode', 'calcul', 'resultat', 'piege', 'verif'])
 
@@ -28,6 +28,7 @@ export function checkAnswer(q: Question): string | null {
   if (q.type === 'court') {
     for (const r of q.reponse) {
       if (!checkExpression(r, [q.reponse[0]], q.variables, q.mode)) return `forme acceptée « ${r} » refusée par le correcteur (variables : [${q.variables}])`
+      if (q.forme && !respecteForme(r, q.forme)) return `réponse « ${r} » pas sous forme ${q.forme}`
     }
   }
   if (q.type === 'qcm') {

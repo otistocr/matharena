@@ -560,3 +560,40 @@ function tex(n: Node, parent = 0): string {
     }
   }
 }
+
+// ---------------------------------------------------------------- Forme exigée
+
+const estSomme = (n: Node): boolean => (n.k === 'bin' && (n.op === '+' || n.op === '-')) || (n.k === 'neg' && estSomme(n.a))
+function produitDeSomme(n: Node): boolean {
+  switch (n.k) {
+    case 'bin':
+      if ((n.op === '*' || n.op === 'imp' || n.op === '^' || n.op === '/') && (estSomme(n.a) || estSomme(n.b))) return true
+      return produitDeSomme(n.a) || produitDeSomme(n.b)
+    case 'neg':
+      return estSomme(n.a) || produitDeSomme(n.a)
+    case 'call':
+      return produitDeSomme(n.a)
+    case 'eq':
+      return produitDeSomme(n.a) || produitDeSomme(n.b)
+    default:
+      return false
+  }
+}
+function estProduit(n: Node): boolean {
+  if (n.k === 'neg') return estProduit(n.a)
+  return n.k === 'bin' && (n.op === '*' || n.op === 'imp' || n.op === '^')
+}
+
+/**
+ * Vérifie la FORME d'une réponse (en plus de sa valeur) :
+ * - "developpee" : plus aucun produit ou puissance d'une somme ;
+ * - "factorisee" : l'expression est un produit (ou une puissance) au premier niveau.
+ */
+export function respecteForme(input: string, forme: 'developpee' | 'factorisee'): boolean {
+  try {
+    const n = parse(input)
+    return forme === 'developpee' ? !produitDeSomme(n) : estProduit(n)
+  } catch {
+    return false
+  }
+}

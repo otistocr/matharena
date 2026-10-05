@@ -1,0 +1,78 @@
+{
+  "chapitre": {
+    "id": "socle",
+    "titre": "Le Socle (bases de calcul)",
+    "court": "Socle",
+    "parcours": "lycee",
+    "ordre": -1,
+    "pages": "prérequis lycée → L1",
+    "sections": [
+      {
+        "id": "socle.s1",
+        "titre": "Fractions",
+        "ref": "LE SOCLE ch. 1"
+      },
+      {
+        "id": "socle.s2",
+        "titre": "Puissances",
+        "ref": "LE SOCLE ch. 2"
+      },
+      {
+        "id": "socle.s3",
+        "titre": "Racines carrées",
+        "ref": "LE SOCLE ch. 2"
+      },
+      {
+        "id": "socle.s4",
+        "titre": "Développer, factoriser, identités remarquables",
+        "ref": "LE SOCLE ch. 3"
+      },
+      {
+        "id": "socle.s5",
+        "titre": "Pourcentages",
+        "ref": "LE SOCLE ch. 4"
+      },
+      {
+        "id": "socle.s6",
+        "titre": "Équations du 1er degré, produit nul, systèmes",
+        "ref": "LE SOCLE ch. 5"
+      },
+      {
+        "id": "socle.s7",
+        "titre": "Second degré",
+        "ref": "LE SOCLE ch. 6 · poly Énoncé 18"
+      },
+      {
+        "id": "socle.s8",
+        "titre": "Inéquations, tableaux de signes",
+        "ref": "LE SOCLE ch. 7"
+      },
+      {
+        "id": "socle.s9",
+        "titre": "Valeur absolue",
+        "ref": "LE SOCLE ch. 8"
+      },
+      {
+        "id": "socle.s10",
+        "titre": "Exponentielle et logarithme",
+        "ref": "LE SOCLE ch. 10 · poly §4.5.2"
+      },
+      {
+        "id": "socle.s11",
+        "titre": "Limites",
+        "ref": "LE SOCLE ch. 11 · poly §4.1.2"
+      },
+      {
+        "id": "socle.s12",
+        "titre": "Dérivation",
+        "ref": "LE SOCLE ch. 12 · poly §4.2.2"
+      },
+      {
+        "id": "socle.s13",
+        "titre": "Fonctions : domaine, parité, composition",
+        "ref": "LE SOCLE ch. 9 · poly §4.1"
+      }
+    ]
+  },
+  "questions": []
+}
