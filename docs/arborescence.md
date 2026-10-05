@@ -1,6 +1,6 @@
 # MathArena — Arborescence proposée (UL1MA001)
 
-Source de vérité : poly « Mathématiques pour les études scientifiques I », version du 18/11/2025 (222 p.).
+Source de vérité : poly « Mathématiques pour les études scientifiques I », version du 18/11/2025 — édition Modules 1 et 4 (222 p.) ; l'édition Modules 2 et 3 (234 p.) a les mêmes énoncés et numéros, avec des « Illustrations » en plus à partir du §4.3 (pages décalées ensuite).
 Identifiants : `ch{N}` / `ch{N}.s{M}` = section M.m du poly. ★n = Énoncé indispensable numéroté n ; ★ = énoncé indispensable non numéroté.
 Niveaux : 1 = Indispensable · 2 = Application · 3 = Pour aller plus loin (étages des feuilles de TD).
 
@@ -26,7 +26,7 @@ Niveaux : 1 = Indispensable · 2 = Application · 3 = Pour aller plus loin (éta
 - ch3.s1 Logique classique : propositions, connecteurs, négations, contraposition
 - ch3.s2 Ensembles : quantificateurs, négation des énoncés quantifiés — ★19 · opérations, produit cartésien, parties · applications — ★20 · composition · injection/surjection/bijection — ★21 · ensembles de nombres
 - ch3.s3 Démonstration : axiomes et déductions — ★ · prouver qu'un énoncé est faux (contre-exemple) · prouver qu'il est vrai (direct, contraposée, absurde, récurrence, disjonction de cas)
-- Sources : poly (16 exemples) · CC1 2022, 2023, 2024 · ton cours « Logique, ensembles et raisonnements »
+- Sources : **TD3 2026** (17 exercices : logique 1–6, ensembles 7–11, raisonnements 12–17) · poly (16 exemples) · CC1 2022, 2023, 2024 · ton cours « Logique, ensembles et raisonnements »
 
 ## ch4 — Études de fonctions (p.91–122)
 - ch4.s1 Vocabulaire : bornes, variations, limites, extrema, parité, périodicité — ★(croissante majorée)
@@ -34,7 +34,7 @@ Niveaux : 1 = Indispensable · 2 = Application · 3 = Pour aller plus loin (éta
 - ch4.s3 Fonctions composées — ★ dérivation d'une composée
 - ch4.s4 Réciproque d'une bijection — ★ théorème de la bijection
 - ch4.s5 Fonctions du répertoire : puissances et racines, exp/ln — ★×4 (croissances comparées) · hyperboliques · puissances réelles — ★ · trigo — ★ · exponentielle complexe · arcsin/arccos/arctan
-- Sources : 18 tests du poly · CC1 (partie « fonctions »)
+- Sources : **TD4 2026** (ex. 1–6 indispensables, 7–16 démonstrations du cours, 17 application) · 18 tests du poly · CC1 (partie « fonctions »)
 
 ## ch5 — Intégration (p.123–134)
 - ch5.s1 Propriétés générales de l'intégrale
