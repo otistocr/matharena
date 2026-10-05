@@ -20,6 +20,8 @@ export interface Gabarit {
   source: string
   refCours: string
   indispensable?: number | true
+  /** Exercice de programmation (éditeur + exécution) : exclu du Blitz et du Défi du jour. */
+  code?: true
   generer: (r: Rng) => Corps
 }
 

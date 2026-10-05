@@ -27,6 +27,9 @@ export const REUSSITES_POUR_CORRIGER = 2
 /** Types jouables en quiz (la Rédaction a son propre mode). */
 const jouable = (it: Item) => !it.question || it.question.type !== 'redaction'
 
+/** Les exercices de programmation prennent du temps : pas dans le Blitz ni le Défi du jour. */
+const rapide = (it: Item) => !it.gabarit?.code
+
 export function melanger<T>(arr: T[], rnd: () => number = Math.random): T[] {
   const a = [...arr]
   for (let i = a.length - 1; i > 0; i--) {
@@ -90,13 +93,13 @@ export async function selectionEntrainement(f: Filtre): Promise<Question[]> {
 
 /** Blitz : tout le filtre mélangé ; appelée à nouveau quand le paquet est épuisé (nouvelles variantes). */
 export function selectionBlitz(f: Filtre): Question[] {
-  return melanger(itemsFiltres(f)).map((it) => tirer(it))
+  return melanger(itemsFiltres(f).filter(rapide)).map((it) => tirer(it))
 }
 
 /** Défi du jour : 5 items et 5 variantes tirés de façon déterministe à partir de la date. */
 export function selectionDefi(date = jour()): Question[] {
   const rnd = graine('defi-' + date)
-  return melanger(ITEMS.filter(jouable), rnd)
+  return melanger(ITEMS.filter((it) => jouable(it) && rapide(it)), rnd)
     .slice(0, DEFI_NB)
     .map((it) => tirer(it, 1 + Math.floor(rnd() * 1e9)))
 }

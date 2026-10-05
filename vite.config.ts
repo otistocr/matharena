@@ -34,6 +34,8 @@ export default defineConfig({
       workbox: {
         globPatterns: ['**/*.{js,css,html,svg,png,woff2}'],
         maximumFileSizeToCacheInBytes: 8 * 1024 * 1024,
+        // Moteur Python (Pyodide, ≈ 12 Mo) : pas dans le précache, mais gardé après la première utilisation.
+        runtimeCaching: [{ urlPattern: /\/pyodide\//, handler: 'CacheFirst', options: { cacheName: 'pyodide', expiration: { maxEntries: 12 } } }],
       },
     }),
   ],

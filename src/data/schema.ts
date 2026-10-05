@@ -87,8 +87,19 @@ export const RedactionQuestion = base.extend({
     .min(1),
 })
 
+/** Exercice de programmation : l'étudiant écrit une fonction Python, l'appli exécute les tests. */
+export const CodeQuestion = base.extend({
+  type: z.literal('code'),
+  /** Code affiché au départ dans l'éditeur (en-tête, spécification). */
+  depart: z.string().min(5),
+  /** Tests exécutés et affichés (instructions assert). */
+  tests: z.array(z.string().startsWith('assert ')).min(1),
+  /** Corrigé modèle : doit passer tous les tests (vérifié par les tests automatiques). */
+  solution: z.string().min(10),
+})
+
 export const Question = z
-  .discriminatedUnion('type', [QcmQuestion, VfQuestion, NumQuestion, CourtQuestion, RedactionQuestion])
+  .discriminatedUnion('type', [QcmQuestion, VfQuestion, NumQuestion, CourtQuestion, RedactionQuestion, CodeQuestion])
   .superRefine((q, ctx) => {
     if (q.type === 'qcm' && q.reponse >= q.choix.length) {
       ctx.addIssue({ code: 'custom', message: `reponse ${q.reponse} hors des choix`, path: ['reponse'] })

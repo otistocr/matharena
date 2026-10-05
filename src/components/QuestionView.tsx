@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { NIVEAUX, type Question } from '../data/schema'
 import { titreSection } from '../data/bank'
 import { checkExpression, checkNumeric, respecteForme, toLatex } from '../lib/mathexpr'
+import { CodeInput } from './CodeInput'
 import { MathInput } from './MathInput'
 import { REUSSITES_POUR_CORRIGER, type Statut } from '../lib/session'
 import { Tex } from './Tex'
@@ -102,7 +103,7 @@ export function Correction({ q, verdict, contexte, saisie }: { q: Question; verd
           <span>{message(verdict, contexte)}</span>
         </div>
       )}
-      {!ok && (
+      {!ok && q.type !== 'code' && (
         <div className="space-y-1 text-sm">
           {saisie && (
             <div className="flex flex-wrap items-baseline gap-x-2">
@@ -126,6 +127,8 @@ export function Correction({ q, verdict, contexte, saisie }: { q: Question; verd
 
 export function QuestionView({ q, indices, rapide, onFin, contexte }: Props) {
   const [saisie, setSaisie] = useState('')
+  const [code, setCode] = useState(q.type === 'code' ? q.depart : '')
+  const [essais, setEssais] = useState(0)
   const [choix, setChoix] = useState<number | boolean | null>(null)
   const [verdict, setVerdict] = useState<Verdict | null>(null)
   const [indiceVu, setIndiceVu] = useState(false)
@@ -165,7 +168,7 @@ export function QuestionView({ q, indices, rapide, onFin, contexte }: Props) {
   // Raccourcis clavier : 1–6 (QCM), V/F, Entrée = suivant.
   useEffect(() => {
     const k = (e: KeyboardEvent) => {
-      if ((e.target as HTMLElement)?.tagName === 'INPUT') return
+      if (['INPUT', 'TEXTAREA'].includes((e.target as HTMLElement)?.tagName)) return
       if (verdict && e.key === 'Enter') return onFin(verdict)
       if (verdict) return
       if (q.type === 'qcm' && /^[1-6]$/.test(e.key) && Number(e.key) <= q.choix.length) repondre(Number(e.key) - 1)
@@ -238,6 +241,29 @@ export function QuestionView({ q, indices, rapide, onFin, contexte }: Props) {
           {q.type === 'num' && q.unite && <p className="text-center text-xs text-[var(--muted)]">Unité : {q.unite}</p>}
           {!verdict && !rapide && (
             <p className="text-center text-xs text-[var(--muted)]">Validé tout seul dès que c’est juste · Entrée = je sèche, voir la correction</p>
+          )}
+        </div>
+      )}
+
+      {q.type === 'code' && (
+        <div className="space-y-2">
+          <CodeInput
+            value={code}
+            onChange={setCode}
+            tests={q.tests}
+            disabled={!!verdict}
+            onResultat={(_, reussi) => {
+              setEssais((n) => n + 1)
+              if (reussi && !verdict) conclure(1)
+            }}
+          />
+          {!verdict && (
+            <div className="flex items-center justify-between text-xs text-[var(--muted)]">
+              <span>{essais > 0 ? 'Corrige ton code et relance les tests autant de fois que tu veux.' : 'Écris ta fonction, puis lance les tests.'}</span>
+              <button onClick={() => conclure(0)} className="shrink-0 underline underline-offset-4">
+                Je sèche : voir le corrigé
+              </button>
+            </div>
           )}
         </div>
       )}

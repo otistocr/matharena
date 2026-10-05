@@ -17,6 +17,7 @@ progression par chapitre et par section. Corrections en blocs colorés. PWA 100 
 ## Contenu
 
 Maths UL1MA001 (Socle, Trigonométrie, chapitres du poly) et **Informatique UL1IN011** (chapitre `info` : Python typé, d’après les cours d’amphi).
+Exercices de programmation (type `code`, `src/gabarits/infoCode.ts`) : éditeur + exécution réelle des tests `assert` par Pyodide (Python dans le navigateur, ≈ 12 Mo chargés à la première utilisation puis en cache hors-ligne ; `tests/python.test.ts` exécute chaque corrigé).
 Les énoncés et corrections acceptent du code : `` `code` `` en ligne et blocs entre lignes ` ``` `.
 
 ## Banques de questions
